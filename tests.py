@@ -22,4 +22,14 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
-    
+    #2
+    def test_add_new_book_long_name_not_added(self):
+        collector = BooksCollector()
+        long_name = "A" * 41  # 41 символ — больше лимита
+        collector.add_new_book(long_name)
+        assert long_name not in collector.get_books_genre()    
+    #3
+    def test_add_new_book_empty_name_not_added(self):
+        collector = BooksCollector()
+        collector.add_new_book('')
+        assert '' not in collector.get_books_genre()
