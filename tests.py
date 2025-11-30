@@ -79,3 +79,8 @@ class TestBooksCollector:
         collector.set_book_genre("Гарри Поттер", "Фантастика")
         books = collector.get_books_with_specific_genre("Фантастика")
         assert set(books) == {"Звёздные войны", "Гарри Поттер"}
+    #10
+    def test_get_books_with_specific_genre_empty_for_invalid_genre(self):
+        collector = BooksCollector()
+        books = collector.get_books_with_specific_genre("Неизвестный жанр")
+        assert books == []
