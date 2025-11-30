@@ -121,3 +121,11 @@ class TestBooksCollector:
         collector.add_book_in_favorites(book)
         collector.add_book_in_favorites(book)
         assert collector.get_list_of_favorites_books() == [book]
+    #16
+    def test_delete_book_from_favorites_success(self):
+        collector = BooksCollector()
+        book = "Преступление и наказание"
+        collector.add_new_book(book)
+        collector.add_book_in_favorites(book)
+        collector.delete_book_from_favorites(book)
+        assert book not in collector.get_list_of_favorites_books()
