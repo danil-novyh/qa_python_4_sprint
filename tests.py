@@ -40,3 +40,9 @@ class TestBooksCollector:
         collector.add_new_book(book)
         collector.add_new_book(book)
         assert len(collector.get_books_genre()) == 1
+    #5
+    def test_add_new_book_no_genre_by_default(self):
+        collector = BooksCollector()
+        book = "Война и мир"
+        collector.add_new_book(book)
+        assert collector.get_book_genre(book) == ''
