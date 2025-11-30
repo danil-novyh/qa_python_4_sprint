@@ -19,3 +19,5 @@
 Проверяет, что метод get_books_with_specific_genre корректно возвращает список книг заданного жанра (в тесте — две книги в жанре «Фантастика»).
 10. test_get_books_with_specific_genre_empty_for_invalid_genre
 Убеждается, что запрос книг по несуществующему жанру возвращает пустой список, а не вызывает ошибку.
+11. test_get_books_for_children_excludes_age_rating_genres
+Проверяет, что метод get_books_for_children не включает книги с жанрами из списка возрастного рейтинга ('Ужасы', 'Детективы').

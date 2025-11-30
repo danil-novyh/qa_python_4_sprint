@@ -84,3 +84,13 @@ class TestBooksCollector:
         collector = BooksCollector()
         books = collector.get_books_with_specific_genre("Неизвестный жанр")
         assert books == []
+    #11
+    def test_get_books_for_children_excludes_age_rating_genres(self):
+        collector = BooksCollector()
+        collector.add_new_book("Ужасы на Хэллоуин")
+        collector.add_new_book("Том и Джерри")
+        collector.set_book_genre("Ужасы на Хэллоуин", "Ужасы")
+        collector.set_book_genre("Том и Джерри", "Мультфильмы")
+        children_books = collector.get_books_for_children()
+        assert "Том и Джерри" in children_books
+        assert "Ужасы на Хэллоуин" not in children_books
