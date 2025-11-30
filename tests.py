@@ -108,3 +108,8 @@ class TestBooksCollector:
         collector.add_new_book(book)
         collector.add_book_in_favorites(book)
         assert book in collector.get_list_of_favorites_books()
+    #14
+    def test_add_book_in_favorites_not_added_if_not_in_books_genre(self):
+        collector = BooksCollector()
+        collector.add_book_in_favorites("Неизвестная книга")
+        assert "Неизвестная книга" not in collector.get_list_of_favorites_books()
