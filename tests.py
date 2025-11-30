@@ -129,3 +129,10 @@ class TestBooksCollector:
         collector.add_book_in_favorites(book)
         collector.delete_book_from_favorites(book)
         assert book not in collector.get_list_of_favorites_books()
+    #17
+    def test_delete_book_from_favorites_not_in_favorites_no_error(self):
+        collector = BooksCollector()
+        book = "Анна Каренина"
+        collector.add_new_book(book)
+        collector.delete_book_from_favorites(book)
+        assert book not in collector.get_list_of_favorites_books()
