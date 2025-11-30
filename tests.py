@@ -100,4 +100,11 @@ class TestBooksCollector:
         book = "Книга без жанра"
         collector.add_new_book(book)
         children_books = collector.get_books_for_children()
-        assert book not in children_books  # так как жанр не в age_rating
+        assert book not in children_books
+    #13
+    def test_add_book_in_favorites_success(self):
+        collector = BooksCollector()
+        book = "1984"
+        collector.add_new_book(book)
+        collector.add_book_in_favorites(book)
+        assert book in collector.get_list_of_favorites_books()
