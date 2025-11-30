@@ -33,3 +33,10 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('')
         assert '' not in collector.get_books_genre()
+    #4
+    def test_add_new_book_duplicate_not_added(self):
+        collector = BooksCollector()
+        book = "Дубровский"
+        collector.add_new_book(book)
+        collector.add_new_book(book)
+        assert len(collector.get_books_genre()) == 1
