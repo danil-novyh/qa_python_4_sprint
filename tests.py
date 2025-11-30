@@ -113,3 +113,11 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_book_in_favorites("Неизвестная книга")
         assert "Неизвестная книга" not in collector.get_list_of_favorites_books()
+    #15
+    def test_add_book_in_favorites_duplicate_not_added(self):
+        collector = BooksCollector()
+        book = "Мастер и Маргарита"
+        collector.add_new_book(book)
+        collector.add_book_in_favorites(book)
+        collector.add_book_in_favorites(book)
+        assert collector.get_list_of_favorites_books() == [book]
