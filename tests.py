@@ -70,3 +70,12 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.set_book_genre("Несуществующая книга", "Фантастика")
         assert collector.get_book_genre("Несуществующая книга") is None
+    #9
+    def test_get_books_with_specific_genre_returns_correct_list(self):
+        collector = BooksCollector()
+        collector.add_new_book("Звёздные войны")
+        collector.add_new_book("Гарри Поттер")
+        collector.set_book_genre("Звёздные войны", "Фантастика")
+        collector.set_book_genre("Гарри Поттер", "Фантастика")
+        books = collector.get_books_with_specific_genre("Фантастика")
+        assert set(books) == {"Звёздные войны", "Гарри Поттер"}
