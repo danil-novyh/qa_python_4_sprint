@@ -33,3 +33,5 @@
 Проверяет корректное удаление книги из избранного с помощью метода delete_book_from_favorites.
 17. test_delete_book_from_favorites_not_in_favorites_no_error
 Убеждается, что попытка удалить книгу, не находящуюся в избранном, не вызывает ошибку и не нарушает состояние системы.
+18. test_get_list_of_favorites_books_returns_correct_list
+Проверяет, что метод get_list_of_favorites_books возвращает актуальный и полный список избранных книг.
